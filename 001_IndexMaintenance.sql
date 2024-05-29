@@ -4,6 +4,7 @@
 USE [DB_NAME]
 GO
 CREATE PROCEDURE dbo.PerformIndexMaintenance
+  @DatabaseName SYSNAME = NULL
 AS
 BEGIN
 
@@ -13,7 +14,12 @@ DECLARE @databases TABLE (DatabaseName NVARCHAR(128));
 
 -- Exclude system databases and select all online databases for processing.
 INSERT INTO @databases
-SELECT name FROM sys.databases WHERE state_desc = 'ONLINE' AND name NOT IN ('master', 'tempdb', 'model', 'msdb');
+SELECT name 
+FROM sys.databases
+WHERE state = 0 -- Only online databases
+AND (@DatabaseName IS NULL AND name NOT IN ('master', 'tempdb', 'model', 'msdb') --Skip the system databases
+     OR @DatabaseName IS NOT NULL AND name = @DatabaseName); --Or selected database
+
 
 -- Create a table to store maintenance results.
 IF OBJECT_ID('dbo.IndexMaintenanceResults') IS NULL 
