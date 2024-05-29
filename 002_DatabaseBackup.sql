@@ -4,6 +4,42 @@ CREATE PROCEDURE dbo.BackupDatabase
     @dbName NVARCHAR(128) = NULL, -- Database name (optional)
     @backupType NVARCHAR(10) = NULL -- Backup type (full, diff, trn)
 AS
+-- ============================@kisinamso===========================
+-- == Select the Database and Create the Stored Procedure         ==
+-- == 1. Use a specific database and create the stored procedure  ==
+-- ==    named `BackupDatabase`.                                  ==
+-- == 2. Define optional parameters for the database name         ==
+-- ==    (`@dbName`) and backup type (`@backupType`).             ==
+-- ============================@kisinamso===========================
+-- == Create BackupLog Table if it Doesn't Exist                  ==
+-- == 1. Check if the `BackupLog` table exists.                   ==
+-- == 2. If it doesn't exist, create the table to store backup    ==
+-- ==    logs, including LogID, DatabaseName, BackupType,         ==
+-- ==    BackupPath, BackupFileName, and BackupDateTime.          ==
+-- ============================@kisinamso===========================
+-- == Set Backup Paths                                            ==
+-- == 1. Determine if it's the end of the month or the year.      ==
+-- == 2. Set the backup path based on the end of the month, end   ==
+-- ==    of the year, or daily backup.                            ==
+-- ============================@kisinamso===========================
+-- == Get Current Date/Time                                       ==
+-- == 1. Get the current date and time in a specific format to    ==
+-- ==    use in the backup file name.                             ==
+-- ============================@kisinamso===========================
+-- == Backup All Databases if No Specific Database is Provided    ==
+-- == 1. If `@dbName` is not specified, backup all online         ==
+-- ==    databases.                                               ==
+-- == 2. Iterate through each database and perform the specified  ==
+-- ==    backup (full, differential, or transaction log).         ==
+-- == 3. Log each backup operation in the `BackupLog` table.      ==
+-- ============================@kisinamso===========================
+-- == Perform Backup for Specified Database                       ==
+-- == 1. If `@dbName` is specified, perform the backup for the    ==
+-- ==    given database according to the specified backup type    ==
+-- ==    (full, differential, or transaction log).                ==
+-- == 2. Log the backup operation in the `BackupLog` table.       ==
+-- ============================@kisinamso===========================
+
 BEGIN
     -- Create BackupLog table if it doesn't exist
     IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'BackupLog')
