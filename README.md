@@ -4,7 +4,7 @@ This repository contains various T-SQL stored procedures that can be used for da
 
 ## Contents
 
-- [Index Maintenance](001_IndexMaintenance.sql)
+1. [Index Maintenance](001_IndexMaintenance.sql)
 - [Databases Backup](002_DatabaseBackup.sql)
 - [Statistics Update Maintenance](003_StatisticsMaintenance.sql)
 - [Shrink All Databases Log Files](004_ShrinkAllLogFiles.sql)
