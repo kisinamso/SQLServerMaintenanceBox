@@ -3,6 +3,39 @@ GO
 CREATE PROCEDURE dbo.IntegrityCheck
     @DatabaseName SYSNAME = NULL
 AS
+-- ============================@kisinamso===========================
+-- == Create the Stored Procedure for Database Integrity Check    ==
+-- == 1. Use a specific database or all databases to check their  ==
+-- ==    integrity, based on the parameter `@DatabaseName`.       ==
+-- == 2. If no database name is provided, exclude system databases==
+-- ==    and check integrity for all other databases.             ==
+-- ============================@kisinamso===========================
+-- == Create IntegrityCheckLog Table if it Doesn't Exist          ==
+-- == 1. Check if the `IntegrityCheckLog` table exists.           ==
+-- == 2. If it doesn't exist, create the table to log integrity   ==
+-- ==    check results, including LogID, DatabaseName, Status,    ==
+-- ==    LogMessage, and LogDateTime.                             ==
+-- ============================@kisinamso===========================
+-- == Declare Variables                                           ==
+-- == 1. Declare necessary variables for SQL commands,            ==
+-- ==    log messages, and status indicators.                     ==
+-- ============================@kisinamso===========================
+-- == Check Integrity for All Databases                           ==
+-- == 1. If no specific database is provided, iterate through all ==
+-- ==    databases (excluding system databases) and run integrity ==
+-- ==    checks on each.                                          ==
+-- == 2. Log the integrity check operation and its result.        ==
+-- ============================@kisinamso===========================
+-- == Check Integrity for a Specific Database                     ==
+-- == 1. If a specific database is provided, run integrity check  ==
+-- ==    only for that database.                                  ==
+-- == 2. Log the integrity check operation and its result.        ==
+-- ============================@kisinamso===========================
+-- == Clean Up                                                    ==
+-- == 1. Close and deallocate the database cursor after all       ==
+-- ==    databases (if applicable) have been processed.           ==
+-- ============================@kisinamso===========================
+
 BEGIN
     SET NOCOUNT ON;
     
