@@ -1,11 +1,37 @@
--- You can enter database name what would create object to where. My suggestions are DBA Database or maintenance database.
--- You can change schema name or stored procedures name.
--- This stored procedure works for maintenance for all indexes in a sql server. If you want to for specifed databases you can change from line 15-16.
 USE [DB_NAME]
 GO
 CREATE PROCEDURE dbo.PerformIndexMaintenance
   @DatabaseName SYSNAME = NULL
 AS
+-- ============================@kisinamso===========================
+-- == Select the Database and Create the Stored Procedure         ==
+-- == 1. Use a specific database and create the stored procedure  ==
+-- ==    named `PerformIndexMaintenance`.                         ==
+-- == 2. Define an optional parameter (`@DatabaseName`) that      ==
+-- ==    can take a specific database name.                       ==
+-- ============================@kisinamso===========================
+-- == Create the Database List                                    ==
+-- == 1. Exclude system databases and select all online user      ==
+-- ==    databases, adding them to a temporary table named        ==
+-- ==    `@databases`.                                            ==
+-- == 2. If the `@DatabaseName` parameter is provided, select     ==
+-- ==    only the specified database.                             ==
+-- ============================@kisinamso===========================
+-- == Create a Table for Maintenance Results                      ==
+-- == 1. Create a table named `IndexMaintenanceResults`.          ==
+-- == 2. This table will be created if it does not already        ==
+-- ==    exist and will be used to store index maintenance        ==
+-- ==    results.                                                 ==
+-- ============================@kisinamso===========================
+-- == Analyze Indexes and Generate Maintenance Commands           ==
+-- == 1. Analyze indexes in other databases and generate          ==
+-- ==    appropriate maintenance commands.                        ==
+-- == 2. Insert maintenance commands and index information        ==
+-- ==    into the `IndexMaintenanceResults` table.                ==
+-- == 3. For each database, determine the status of indexes       ==
+-- ==    and generate reorganize or rebuild commands.             ==
+-- == 4. Execute the generated commands.                          ==
+-- ============================@kisinamso===========================
 BEGIN
 
 -- Please provide the list of all databases to be processed below.
