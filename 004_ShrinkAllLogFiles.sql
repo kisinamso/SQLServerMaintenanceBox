@@ -3,6 +3,43 @@ GO
 CREATE PROCEDURE ShrinkAllLogFiles
     @DatabaseName SYSNAME = NULL
 AS
+  -- ============================@kisinamso=========================
+-- == Select the Database and Create the Stored Procedure         ==
+-- == 1. Use a specific database and create the stored procedure  ==
+-- ==    named `ShrinkAllLogFiles`.                               ==
+-- == 2. Define an optional parameter for the database name       ==
+-- ==    (`@DatabaseName`).                                       ==
+-- ============================@kisinamso===========================
+-- == Create ShrinkLog Table if it Doesn't Exist                  ==
+-- == 1. Check if the `ShrinkLog` table exists.                   ==
+-- == 2. If it doesn't exist, create the table to store shrink    ==
+-- ==    logs, including ID, DatabaseName, LogFileName,           ==
+-- ==    ShrinkDate, OriginalSizeMB, ShrunkSizeMB, and Status.    ==
+-- ============================@kisinamso===========================
+-- == Declare Variables                                           ==
+-- == 1. Declare necessary variables for SQL commands, database   ==
+-- ==    names, log file names, sizes, and status.                ==
+-- ============================@kisinamso===========================
+-- == Cursor to Iterate Over All Online Databases                 ==
+-- == 1. Declare a cursor to select all online databases,         ==
+-- ==    excluding system databases unless specified.             ==
+-- == 2. Iterate through each database using the cursor.          ==
+-- ============================@kisinamso===========================
+-- == Shrink Log Files                                            ==
+-- == 1. For each database, determine the log file name and       ==
+-- ==    original size.                                           ==
+-- == 2. Generate and execute the DBCC SHRINKFILE command to      ==
+-- ==    shrink the log file.                                     ==
+-- ============================@kisinamso===========================
+-- == Log the Shrink Operation                                    ==
+-- == 1. After shrinking the log file, determine the shrunk size. ==
+-- == 2. Use TRY...CATCH to log the operation's success or failure==
+-- ==    along with the relevant details.                         ==
+-- ============================@kisinamso===========================
+-- == Clean Up                                                    ==
+-- == 1. Close and deallocate the database cursor after all       ==
+-- ==    databases have been processed.                           ==
+-- ============================@kisinamso===========================
 BEGIN
     SET NOCOUNT ON;
 
