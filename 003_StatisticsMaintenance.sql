@@ -1,9 +1,49 @@
---Please change all ENTER_DB_NAME with Ctrl+H shortkey
+  -- ============================@kisinamso=========================
+-- == Please change all ENTER_DB_NAME with Ctrl+H shortkey        ==
+-- ============================@kisinamso===========================
 USE [ENTER_DB_NAME]
 GO
 
 CREATE PROCEDURE [dbo].[UpdateStatisticsAndLog]
 AS
+-- ============================@kisinamso===========================
+-- == Use the specified database and create the stored procedure  ==
+-- == 1. Replace [ENTER_DB_NAME] with the actual database name.   ==
+-- == 2. Create the stored procedure named `UpdateStatisticsAndLog`. ==
+-- ============================@kisinamso===========================
+-- == Create Log Table if it Doesn't Exist                         ==
+-- == 1. Check if the `StatisticsUpdateLog` table exists.          ==
+-- == 2. If it doesn't exist, create the table to log statistics   ==
+-- ==    updates, including LogID, DatabaseName, SchemaName,       ==
+-- ==    TableName, StatisticName, UpdateDate, Status, and         ==
+-- ==    ErrorMessage.                                             ==
+-- ============================@kisinamso============================
+-- == Cursor to Iterate Over All Non-System Databases              ==
+-- == 1. Declare a cursor to select all non-system databases.      ==
+-- == 2. Iterate through each database using the cursor.           ==
+-- ============================@kisinamso============================
+-- == Generate and Execute SQL for Each Database                   ==
+-- == 1. For each database, generate a SQL script to update        ==
+-- ==    statistics on each table.                                 ==
+-- == 2. Use another cursor to iterate through all tables and      ==
+-- ==    statistics within the current database.                   ==
+-- ============================@kisinamso============================
+-- == Update Statistics for Each Table                             ==
+-- == 1. Generate the UPDATE STATISTICS command for each table     ==
+-- ==    and statistic.                                            ==
+-- == 2. Use TRY...CATCH to execute the command and log the result.==
+-- ============================@kisinamso============================
+-- == Log Success or Failure                                       ==
+-- == 1. If the statistics update succeeds, log the success.       ==
+-- == 2. If the statistics update fails, log the error message.    ==
+-- ============================@kisinamso============================
+-- == Clean Up                                                     ==
+-- == 1. Close and deallocate the table cursor after processing    ==
+-- ==    each database.                                            ==
+-- == 2. Close and deallocate the database cursor after all        ==
+-- ==    databases have been processed.                            ==
+-- ============================@kisinamso============================
+
 BEGIN
     SET NOCOUNT ON;
 
