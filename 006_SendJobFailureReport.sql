@@ -1,5 +1,33 @@
-CREATE PROCEDURE sp_SendJobFailureReport
+CREATE PROCEDURE dbo.SendJobFailureReport
 AS
+-- ============================@kisinamso===========================
+-- == Variables Declaration                                       ==
+-- == 1. Declare variables for email body, subject, profile name, ==
+-- ==    and recipients.                                          ==
+-- == 2. Set default values for @ProfileName and @Recipients.     ==
+-- ============================@kisinamso===========================
+-- == Fetching Failed Jobs in the Last 1 Day                      ==
+-- == 1. Use a CTE (Common Table Expression) to fetch details of  ==
+-- ==    failed jobs within the last 1 day from sysjobhistory and ==
+-- ==    sysjobs tables.                                          ==
+-- == 2. Select job name, step ID, step name, error message, run  ==
+-- ==    date, and run time for failed jobs.                      ==
+-- ============================@kisinamso===========================
+-- == Constructing the HTML Body                                  ==
+-- == 1. Use HTML and CSS to format the email body.               ==
+-- == 2. Create a table to display the job failure details.       ==
+-- == 3. Populate the table rows with data from the JobFailures   ==
+-- ==    CTE.                                                     ==
+-- ============================@kisinamso===========================
+-- == Setting the Email Subject                                   ==
+-- == 1. Set the email subject to include the current date and    ==
+-- ==    time.                                                    ==
+-- ============================@kisinamso===========================
+-- == Sending the Email                                           ==
+-- == 1. Use sp_send_dbmail to send the email with the constructed==
+-- ==    HTML body and subject.                                   ==
+-- ============================@kisinamso===========================
+
 BEGIN
     -- Variables
     DECLARE @Body NVARCHAR(MAX);
