@@ -1,6 +1,6 @@
 USE [DB_NAME]
 GO
-CREATE PROCEDURE ShrinkAllLogFiles
+CREATE PROCEDURE dbo.ShrinkAllLogFiles
     @DatabaseName SYSNAME = NULL
 AS
   -- ============================@kisinamso=========================
