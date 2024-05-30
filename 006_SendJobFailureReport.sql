@@ -1,3 +1,5 @@
+USE [DB_NAME]
+GO
 CREATE PROCEDURE dbo.SendJobFailureReport
 AS
 -- ============================@kisinamso===========================
