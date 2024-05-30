@@ -10,6 +10,7 @@ This repository contains various T-SQL stored procedures that can be used for da
 4. [Shrink All Databases Log Files](004_ShrinkAllLogFiles.sql)
 5. [Database Integrity Check](005_IntegrityCheck.sql)
 6. [Send Job Failure Report E-Mail](006_SendJobFailureReport.sql)
+7. [Blocking Check And Send E-Mail](007_BlockingCheckAndSendEmail.sql)
 
 ## Index Maintenance
 
@@ -34,3 +35,7 @@ This stored procedure checks the integrity of a specified database. If not speci
 ## Send Job Failure Report E-Mail
 
 This stored procedure sending e-mail for failured job.
+
+## Blocking Check And Send E-Mail
+
+This stored procedure sending e-mail for blocking session.
