@@ -9,6 +9,7 @@ This repository contains various T-SQL stored procedures that can be used for da
 3. [Statistics Update Maintenance](003_StatisticsMaintenance.sql)
 4. [Shrink All Databases Log Files](004_ShrinkAllLogFiles.sql)
 5. [Database Integrity Check](005_IntegrityCheck.sql)
+6. [Send Job Failure Report E-Mail](006_SendJobFailureReport.sql)
 
 ## Index Maintenance
 
@@ -29,3 +30,7 @@ This stored procedure aims to shrink all database log files.
 ## Database Integrity Check
 
 This stored procedure checks the integrity of a specified database. If not specified, it checks the integrity of all databases.
+
+## Send Job Failure Report E-Mail
+
+This stored procedure sending e-mail for failured job.
