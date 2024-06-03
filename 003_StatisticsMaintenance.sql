@@ -67,7 +67,7 @@ BEGIN
     DECLARE db_cursor CURSOR FOR
     SELECT name
     FROM sys.databases
-    WHERE name = 'db_sys';  -- Skip system databases
+    WHERE database_id > 4;  -- Skip system databases
 
     DECLARE     @dbName sysname            
     OPEN db_cursor;
