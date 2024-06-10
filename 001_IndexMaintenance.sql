@@ -1,3 +1,6 @@
+-- =============================@kisinamso==========================
+-- == Please change all ENTER_DB_NAME with Ctrl+H shortkey        ==
+-- ============================@kisinamso===========================
 USE [ENTER_DB_NAME]
 GO
 CREATE PROCEDURE dbo.PerformIndexMaintenance
@@ -75,7 +78,7 @@ WHILE @@FETCH_STATUS = 0
 BEGIN
     SET @sql = 
     'USE [' + @dbName + ']; ' +
-    'INSERT INTO [ENTER_DB_NAME].dbo.IndexMaintenanceResults (DatabaseName, TableName, IndexName, FragmentationPercent, MaintenanceCommand) ' +
+    'INSERT INTO [ENTER_DB_NAME].[dbo].[IndexMaintenanceResults] (DatabaseName, TableName, IndexName, FragmentationPercent, MaintenanceCommand) ' +
     'SELECT ' + QUOTENAME(@dbName, '''') + ' AS DatabaseName, ' +
     'OBJECT_NAME(ind.OBJECT_ID) AS TableName, ' +
     'ind.name AS IndexName, ' +
