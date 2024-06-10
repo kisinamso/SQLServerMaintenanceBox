@@ -3,7 +3,7 @@
 -- ============================@kisinamso===========================
 USE [ENTER_DB_NAME]
 GO
-CREATE OR ALTER PROCEDURE dbo.PerformIndexMaintenance
+CREATE PROCEDURE dbo.PerformIndexMaintenance
   @DatabaseName SYSNAME = NULL
 AS
 -- ============================@kisinamso===========================
