@@ -11,6 +11,7 @@ This repository contains various T-SQL stored procedures that can be used for da
 5. [Database Integrity Check](005_IntegrityCheck.sql)
 6. [Send Job Failure Report E-Mail](006_SendJobFailureReport.sql)
 7. [Blocking Check And Send E-Mail](007_BlockingCheckAndSendEmail.sql)
+8. [Analyzing Tables For Archiving](008_AnalyzeTablesToBeArchived.sql)
 
 ## Index Maintenance
 
@@ -39,3 +40,7 @@ This stored procedure sending e-mail for failured job.
 ## Blocking Check And Send E-Mail
 
 This stored procedure sending e-mail for blocking session.
+
+## Analyzing Tables For Archiving
+
+This stored procedure analyzing tables for archiving in specified or all databases.
