@@ -33,7 +33,7 @@ If you want to view guideline, please click [here](https://github.com/kisinamso/
 ## Shrink All Databases Log Files
 
 This stored procedure aims to shrink all database log files.
-If you eant to view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/004_ShrinkAllLogFiles.md).
+If you want to view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/004_ShrinkAllLogFiles.md).
 
 ## Database Integrity Check
 
