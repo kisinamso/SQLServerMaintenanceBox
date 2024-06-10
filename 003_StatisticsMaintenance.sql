@@ -70,7 +70,7 @@ BEGIN
     FROM sys.databases
     WHERE state = 0 -- Only online databases
 		AND (@DatabaseName IS NULL AND name NOT IN('master','tempdb','model','msdb') --Skip the system databases
-			OR @DatabaseBame IS NOT NULL AND name = @DatabaseName); -- Or selected database
+			OR @DatabaseName IS NOT NULL AND name = @DatabaseName); -- Or selected database
     DECLARE     @dbName sysname            
     OPEN db_cursor;
     FETCH NEXT FROM db_cursor INTO @dbName;
