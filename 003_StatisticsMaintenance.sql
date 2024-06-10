@@ -5,6 +5,7 @@ USE [ENTER_DB_NAME]
 GO
 
 CREATE PROCEDURE [dbo].[UpdateStatisticsAndLog]
+@DatabaseName SYSNAME = NULL
 AS
 -- ============================@kisinamso===========================
 -- == Use the specified database and create the stored procedure  ==
@@ -67,8 +68,9 @@ BEGIN
     DECLARE db_cursor CURSOR FOR
     SELECT name
     FROM sys.databases
-    WHERE database_id > 4;  -- Skip system databases
-
+    WHERE state = 0 -- Only online databases
+		AND (@DatabaseName IS NULL AND name NOT IN('master','tempdb','model','msdb') --Skip the system databases
+			OR @DatabaseBame IS NOT NULL AND name = @DatabaseName); -- Or selected database
     DECLARE     @dbName sysname            
     OPEN db_cursor;
     FETCH NEXT FROM db_cursor INTO @dbName;
