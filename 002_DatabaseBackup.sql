@@ -2,7 +2,8 @@ USE [DB_NAME]
 GO
 CREATE PROCEDURE dbo.BackupDatabase
     @dbName NVARCHAR(128) = NULL, -- Database name (optional)
-    @backupType NVARCHAR(10) = NULL -- Backup type (full, diff, trn)
+    @backupType NVARCHAR(10) = NULL, -- Backup type (full, diff, trn)
+    @backupPath NVARCHAR(128) -- Define Backup Path Like This: 'C:\YourBackupFolder'  
 AS
 -- ============================@kisinamso===========================
 -- == Select the Database and Create the Stored Procedure         ==
@@ -54,7 +55,6 @@ BEGIN
         );
     END
 
-    DECLARE @backupPath NVARCHAR(256) -- Backup path
     DECLARE @fileName NVARCHAR(256) -- Backup file name
     DECLARE @dateTime NVARCHAR(20) -- Date/time
     DECLARE @isEndOfMonth BIT -- Is it the end of the month?
@@ -67,15 +67,15 @@ BEGIN
     -- Set backup paths
     IF @isEndOfMonth = 1
     BEGIN
-        SET @backupPath = 'C:\YourBackupFolder\Monthly\' -- Monthly backup directory
+        SET @backupPath += '\Monthly\' -- Monthly backup directory
     END
     ELSE IF @isEndOfYear = 1
     BEGIN
-        SET @backupPath = 'C:\YourBackupFolder\Yearly\' -- Yearly backup directory
+        SET @backupPath += '\Yearly\' -- Yearly backup directory
     END
     ELSE
     BEGIN
-        SET @backupPath = 'C:\YourBackupFolder\Daily\' -- Daily backup directory
+        SET @backupPath += '\Daily\' -- Daily backup directory
     END
 
     -- Get current date/time
