@@ -18,39 +18,39 @@ This repository contains various T-SQL stored procedures that can be used for da
 ## Index Maintenance
 
 This stored procedure performs maintenance on indexes in specified or all databases. It checks index fragmentation and reorganizes or rebuilds indexes as needed.
-If you view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/001_IndexMaintenanceGuideline.md).
+If you want to view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/001_IndexMaintenanceGuideline.md).
 
 ## Databases Backup
 
 This stored procedure backs up specified or all databases. It offers options for full, differential, and transaction log backups.
-If you view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/002_DatabaseBackupGuideline.md).
+If you want to view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/002_DatabaseBackupGuideline.md).
 
 ## Statistics Update Maintenance
 
 This stored procedure performs maintenance on statistics in specified or all databases.
-If you view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/003_StatisticsMaintenanceGuideline.md).
+If you want to view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/003_StatisticsMaintenanceGuideline.md).
 
 ## Shrink All Databases Log Files
 
 This stored procedure aims to shrink all database log files.
-If you view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/004_ShrinkAllLogFiles.md).
+If you eant to view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/004_ShrinkAllLogFiles.md).
 
 ## Database Integrity Check
 
 This stored procedure checks the integrity of a specified database. If not specified, it checks the integrity of all databases.
-If you view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/005_IntegrityCheckGuideline.md).
+If you want to view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/005_IntegrityCheckGuideline.md).
 
 ## Send Job Failure Report E-Mail
 
 This stored procedure sending e-mail for failured job.
-If you view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/006_SendJobFailureReportGuideline.md).
+If you want to view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/006_SendJobFailureReportGuideline.md).
 
 ## Blocking Check And Send E-Mail
 
 This stored procedure sending e-mail for blocking session.
-If you view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/007_BlockingCheckAndSendEmailGuideline.md).
+If you want to view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/007_BlockingCheckAndSendEmailGuideline.md).
 
 ## Analyzing Tables For Archiving
 
 This stored procedure analyzing tables for archiving in specified or all databases.
-If you view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/008_AnalyzeTablesToBeArchivedGuideline.md).
+If you want to view guideline, please click [here](https://github.com/kisinamso/SQLServerMaintenanceBoxGuideline/blob/main/008_AnalyzeTablesToBeArchivedGuideline.md).
