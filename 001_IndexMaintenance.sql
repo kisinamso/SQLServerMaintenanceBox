@@ -87,7 +87,7 @@ BEGIN
         '            OR (col.max_length = -1 AND TYPE_NAME(col.user_type_id) IN (''varchar'', ''nvarchar'', ''varbinary'')) THEN ' +
         '            ''ALTER INDEX '' + QUOTENAME(ind.name) + '' ON '' + QUOTENAME(OBJECT_SCHEMA_NAME(ind.OBJECT_ID)) + ''.'' + QUOTENAME(OBJECT_NAME(ind.OBJECT_ID)) + '' REORGANIZE;'' ' +
         '        ELSE ' +
-        '            ''ALTER INDEX '' + QUOTENAME(ind.name) + '' ON '' + QUOTENAME(OBJECT_SCHEMA_NAME(ind.OBJECT_ID)) + ''.'' + QUOTENAME(OBJECT_NAME(ind.OBJECT_ID)) + '' REORGANIZE --WITH (ONLINE = ON);'' ' +
+        '            ''ALTER INDEX '' + QUOTENAME(ind.name) + '' ON '' + QUOTENAME(OBJECT_SCHEMA_NAME(ind.OBJECT_ID)) + ''.'' + QUOTENAME(OBJECT_NAME(ind.OBJECT_ID)) + '' REORGANIZE WITH (ONLINE = ON);'' ' +
         '    END ' +
         'WHEN indexstats.avg_fragmentation_in_percent &gt; 30 THEN ' +
         '    CASE ' +
@@ -95,7 +95,7 @@ BEGIN
         '            OR (col.max_length = -1 AND TYPE_NAME(col.user_type_id) IN (''varchar'', ''nvarchar'', ''varbinary'')) THEN ' +
         '            ''ALTER INDEX '' + QUOTENAME(ind.name) + '' ON '' + QUOTENAME(OBJECT_SCHEMA_NAME(ind.OBJECT_ID)) + ''.'' + QUOTENAME(OBJECT_NAME(ind.OBJECT_ID)) + '' REBUILD;'' ' +
         '        ELSE ' +
-        '            ''ALTER INDEX '' + QUOTENAME(ind.name) + '' ON '' + QUOTENAME(OBJECT_SCHEMA_NAME(ind.OBJECT_ID)) + ''.'' + QUOTENAME(OBJECT_NAME(ind.OBJECT_ID)) + '' REBUILD --WITH (ONLINE = ON);'' ' +
+        '            ''ALTER INDEX '' + QUOTENAME(ind.name) + '' ON '' + QUOTENAME(OBJECT_SCHEMA_NAME(ind.OBJECT_ID)) + ''.'' + QUOTENAME(OBJECT_NAME(ind.OBJECT_ID)) + '' REBUILD WITH (ONLINE = ON);'' ' +
         '    END ' +
         'ELSE NULL ' +
         'END AS MaintenanceCommand, ' +
